@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="sauge">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isabelle – Psychopraticienne et Thérapeute Systémique à Saint-Étienne-de-Crossey</title>
+  <meta name="description" content="Isabelle, psychopraticienne et thérapeute systémique au Cabinet de Thérapie Chartreuse. Un espace d'écoute pour vous-même, votre couple ou votre famille en thérapie brève." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="#" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       TOKENS — 3 THÈMES
+    ══════════════════════════════════════════════════ */
+
+    /* ── Blanc ─────────────────────────────── */
+    [data-theme="blanc"] {
+      --bg:           #f7f8f8;
+      --card:         #ffffff;
+      --border:       #e5e7eb;
+      --accent:       #0d766e;
+      --accent-h:     #0a5c55;
+      --accent-bg:    #f0faf9;
+      --accent-brd:   #cceae7;
+      --text:         #1f2937;
+      --muted:        #6b7280;
+      --strong:       #111827;
+      --shadow-sm:    0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:    0 6px 20px rgba(0,0,0,.08);
+      --nav-blur:     rgba(255,255,255,.92);
+      --radius:       1rem;
+      --callout-style: italic;
+      --h-family:     'Inter', system-ui, sans-serif;
+      --body-family:  'Inter', system-ui, sans-serif;
+      --hero-pad-top: 5rem;
+      --hero-pad-bot: 4rem;
+    }
+
+    /* ── Sauge (Défaut) ────────────────────── */
+    [data-theme="sauge"] {
+      --bg:           #f3f0e8;
+      --card:         #faf9f4;
+      --border:       #ddd8cc;
+      --accent:       #5b7a5e;
+      --accent-h:     #445d47;
+      --accent-bg:    #eef3ee;
+      --accent-brd:   #c4d4c5;
+      --text:         #2d3028;
+      --muted:        #6b6e5f;
+      --strong:       #1e2119;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03);
+      --shadow-md:    0 8px 24px rgba(0,0,0,.08);
+      --nav-blur:     rgba(243,240,232,.93);
+      --radius:       .875rem;
+      --callout-style: italic;
+      --h-family:     'Inter', system-ui, sans-serif;
+      --body-family:  'Inter', system-ui, sans-serif;
+      --hero-pad-top: 5.5rem;
+      --hero-pad-bot: 4.5rem;
+    }
+
+    /* ── Lin ───────────────────────────────── */
+    [data-theme="lin"] {
+      --bg:           #eeebe4;
+      --card:         #f9f7f3;
+      --border:       #ddd5c8;
+      --accent:       #8b6f5e;
+      --accent-h:     #6e5548;
+      --accent-bg:    #f5ede9;
+      --accent-brd:   #d9bfb7;
+      --text:         #302820;
+      --muted:        #7a6458;
+      --strong:       #201810;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03);
+      --shadow-md:    0 8px 24px rgba(0,0,0,.09);
+      --nav-blur:     rgba(238,235,228,.93);
+      --radius:       .75rem;
+      --callout-style: italic;
+      --h-family:     'Inter', system-ui, sans-serif;
+      --body-family:  'Inter', system-ui, sans-serif;
+      --hero-pad-top: 5rem;
+      --hero-pad-bot: 4rem;
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body-family);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      transition: background .35s, color .35s;
+    }
+    strong { color: var(--strong); font-weight: 500; }
+
+    /* ══════════════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════════════ */
+    :root { --nav-h: 64px; }
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--nav-blur); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border); transition: all .35s; height: var(--nav-h);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+      height: 100%; display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--h-family); font-size: 1.05rem; font-weight: 500;
+      color: var(--text); letter-spacing: -.01em; transition: color .35s;
+    }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      font-size: .82rem; color: var(--muted); text-decoration: none;
+      transition: color .2s; font-weight: 400; letter-spacing: .01em;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Switcher Thémes */
+    .theme-switcher { display: flex; align-items: center; gap: .45rem; }
+    .theme-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid transparent; cursor: pointer;
+      transition: transform .2s, border-color .2s;
+    }
+    .theme-dot[data-t="blanc"] { background: #0d766e; }
+    .theme-dot[data-t="sauge"] { background: #5b7a5e; }
+    .theme-dot[data-t="lin"] { background: #8b6f5e; }
+    [data-theme="blanc"] .theme-dot[data-t="blanc"],
+    [data-theme="sauge"] .theme-dot[data-t="sauge"],
+    [data-theme="lin"] .theme-dot[data-t="lin"] {
+      border-color: var(--text); transform: scale(1.2);
+    }
+
+    /* Mobile */
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: .25rem;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      border-radius: 2px; transition: .25s;
+    }
+
+    /* ══════════════════════════════════════════════════
+       HERO & HEADER
+    ══════════════════════════════════════════════════ */
+    header {
+      background: var(--card); border-bottom: 1px solid var(--border);
+      padding: var(--hero-pad-top) 1.5rem var(--hero-pad-bot);
+      text-align: center; transition: all .35s; position: relative;
+    }
+    [data-theme="sauge"] header::after {
+      content: ''; display: block; width: 40px; height: 1px;
+      background: var(--accent); margin: 1.25rem auto 0; opacity: .5;
+    }
+    [data-theme="lin"] header::after {
+      content: ''; display: block; width: 4px; height: 4px;
+      background: var(--accent); margin: 1.25rem auto 0; transform: rotate(45deg); opacity: .6;
+    }
+    header h1 {
+      font-family: var(--h-family); font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      font-weight: 600; letter-spacing: -.02em; color: var(--text);
+      margin-bottom: .5rem; line-height: 1.2;
+    }
+    header h2 {
+      font-size: 1.05rem; font-weight: 400; color: var(--accent);
+      margin-bottom: 1.5rem; letter-spacing: .02em;
+    }
+    header .header-intro {
+      max-width: 650px; margin: 1.5rem auto 0;
+      font-size: .95rem; color: var(--muted);
+      line-height: 1.8; text-align: left;
+    }
+    @media(max-width:768px){ header .header-intro { text-align: center; } }
+    
+    .btn {
+      display: inline-block; margin-top: .5rem; padding: .75rem 2rem;
+      background: var(--accent); color: #fff; text-decoration: none;
+      border-radius: var(--radius); font-weight: 500; font-size: .95rem;
+      transition: background .2s, transform .1s;
+    }
+    .btn:hover { background: var(--accent-h); }
+    .btn:active { transform: scale(.98); }
+
+    /* ══════════════════════════════════════════════════
+       MAIN & CARDS
+    ══════════════════════════════════════════════════ */
+    main {
+      max-width: 860px; margin: 0 auto;
+      padding: 3rem 1.5rem 4rem; display: flex; flex-direction: column; gap: 1.75rem;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-sm);
+      scroll-margin-top: calc(var(--nav-h) + 1.25rem); transition: all .35s;
+    }
+    .card:hover { box-shadow: var(--shadow-md); border-color: var(--accent-brd); }
+    .card h3 {
+      font-family: var(--h-family); font-size: 1.15rem; font-weight: 600;
+      color: var(--accent); margin-bottom: 1.25rem; letter-spacing: -.01em; line-height: 1.3;
+    }
+    .card h4 {
+      font-family: var(--h-family); font-size: 1.05rem; font-weight: 600;
+      color: var(--text); margin-top: 1.5rem; margin-bottom: .5rem;
+    }
+    .card p { color: var(--muted); margin-bottom: .9rem; font-size: .98rem; }
+    [data-theme="sauge"] .card p { font-size: 1.02rem; line-height: 1.8; }
+    .card p:last-child { margin-bottom: 0; }
+    
+    /* Listes stylisées */
+    .card ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; margin-bottom: 1rem;}
+    .card ul li {
+      color: var(--muted); font-size: .98rem; display: flex; align-items: flex-start; gap: .75rem;
+    }
+    [data-theme="sauge"] .card ul li { font-size: 1.02rem; }
+    .card ul li::before {
+      content: ''; display: block; width: 5px; height: 5px; min-width: 5px;
+      background: var(--accent); border-radius: 50%; margin-top: .65rem; transition: background .35s;
+    }
+    [data-theme="lin"] .card ul li::before { border-radius: 1px; transform: rotate(45deg); width: 6px; height: 6px; }
+
+    /* Callout / Insert */
+    .callout {
+      border-left: 3px solid var(--accent); background: var(--accent-bg);
+      border-radius: 0 .5rem .5rem 0; padding: 1rem 1.25rem;
+      color: var(--text); font-size: .95rem; margin-top: 1.25rem; margin-bottom: 1.25rem;
+      font-style: var(--callout-style); transition: all .35s;
+    }
+    [data-theme="sauge"] .callout { font-size: 1rem; line-height: 1.8; }
+    
+    /* Layout pour les tarifs */
+    .price-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .price-item {
+      background: var(--bg); padding: 1.25rem; border-radius: calc(var(--radius) * 0.8);
+      border: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.25rem;
+    }
+    .price-item-title { font-weight: 500; color: var(--text); }
+    .price-item-cost { font-size: 1.15rem; font-weight: 600; color: var(--accent); }
+    .price-item-desc { font-size: 0.85rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════════════
+       FORMULAIRE DE CONTACT
+    ══════════════════════════════════════════════════ */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: .75rem; }
+    .form-group label {
+      font-size: .8rem; font-weight: 500; color: var(--muted);
+      letter-spacing: .03em; text-transform: uppercase;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: .65rem .875rem; border: 1px solid var(--border);
+      border-radius: calc(var(--radius) * .6); background: var(--bg);
+      color: var(--text); font-family: inherit; font-size: .9rem;
+      transition: all .2s; box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      margin-top: .5rem; padding: .75rem 2rem; background: var(--accent);
+      color: #fff; border: none; border-radius: var(--radius);
+      font-family: inherit; font-size: .95rem; font-weight: 500;
+      cursor: pointer; transition: background .2s, transform .1s;
+    }
+    .btn-submit:hover { background: var(--accent-h); }
+    .btn-submit:active { transform: scale(.98); }
+    .form-status { font-size: .9rem; padding: .5rem 0; min-height: 1.5rem; }
+    .form-status.success { color: var(--accent); }
+    .form-status.error   { color: #b91c1c; }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════ */
+    footer {
+      text-align: center; padding: 2.5rem 1.5rem; font-size: .85rem;
+      color: var(--muted); border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: .25rem; transition: all .35s;
+    }
+
+    /* ══════════════════════════════════════════════════
+       ANIMATIONS ET RESPONSIVE
+    ══════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { opacity: 0; animation: fadeUp .55s ease forwards; }
+    .card:nth-child(1) { animation-delay: .04s; }
+    .card:nth-child(2) { animation-delay: .11s; }
+    .card:nth-child(3) { animation-delay: .18s; }
+    .card:nth-child(4) { animation-delay: .25s; }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+      .nav-links.open {
+        display: flex; position: absolute; top: var(--nav-h); left: 0; right: 0;
+        background: var(--nav-blur); backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; gap: .875rem;
+      }
+      .nav-toggle { display: flex; }
+      .nav-right { gap: 1rem; }
+      .card { padding: 1.75rem 1.25rem; }
+      header { padding: 3rem 1.25rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ───────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-brand">Isabelle &middot; Thérapie</span>
+
+      <div class="nav-right">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#approche">Mon Approche</a></li>
+          <li><a href="#accompagnements">Mes Accompagnements</a></li>
+          <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
+          <li><a href="#contact">Tarifs & Contact</a></li>
+        </ul>
+
+        <!-- Switcher Thèmes CSS -->
+        <div class="theme-switcher" aria-label="Choisir un thème">
+          <button class="theme-dot" data-t="blanc" aria-label="Thème clair"></button>
+          <button class="theme-dot" data-t="sauge" aria-label="Thème sauge"></button>
+          <button class="theme-dot" data-t="lin" aria-label="Thème lin"></button>
+        </div>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <header id="accueil">
+    <h1>Isabelle</h1>
+    <h2>Psychopraticienne et Thérapeute Systémique</h2>
+    <p>Un espace d'écoute pour vous-même, votre couple ou votre famille.</p>
+    
+    <a href="#contact" class="btn">Prendre rendez-vous</a>
+
+    <div class="header-intro">
+      <strong>Pourquoi consulter ?</strong><br/>
+      Vous traversez une période difficile, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond. Que votre demande concerne votre situation personnelle, votre couple, ou l'un des membres de votre famille, nous pouvons travailler ensemble pour débloquer ces situations.
+    </div>
+  </header>
+
+  <!-- ── Content ──────────────────────────────────────── -->
+  <main>
+
+    <!-- Mon Approche -->
+    <section id="approche" class="card">
+      <h3>Mon Approche</h3>
+      
+      <h4>Une vision globale</h4>
+      <p>
+        Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.
+      </p>
+
+      <h4>L'effet papillon</h4>
+      <p>
+        Nous partons du principe qu'une modification chez l'un des membres entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.
+      </p>
+
+      <h4>Une thérapie brève et concrète</h4>
+      <p>
+        L'approche systémique fait partie des <strong>thérapies brèves</strong>. Nous explorons ensemble le problème à l'origine de votre demande en prenant en compte vos différents "systèmes" (famille, travail, activités).
+      </p>
+
+      <h4>Au-delà des mots</h4>
+      <p>
+        Quand les mots perdent leur sens, nous utilisons d'autres outils non-verbaux pour faire apparaître ce qui se joue vraiment.
+      </p>
+    </section>
+
+    <!-- Mes Accompagnements -->
+    <section id="accompagnements" class="card">
+      <h3>Mes Accompagnements</h3>
+
+      <h4>1. Thérapie Familiale</h4>
+      <div class="callout">
+        Chaque membre a son importance, une place singulière, et contribue à l'équilibre global.
+      </div>
+      <p>
+        Vous vivez des moments difficiles, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus ? L'approche systémique s'intéresse avant tout aux interactions au sein de votre famille. Nous partons du principe qu'une modification chez l'un des membres amène des changements chez les autres : c'est le fameux « effet papillon » !
+      </p>
+      <ul>
+        <li><strong>Une exploration globale :</strong> Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement.</li>
+        <li><strong>Au-delà des mots :</strong> Parfois, les mots sont comme usés de leur sens entre vous. Nous pourrons alors utiliser d'autres outils non verbaux pour faire apparaître ce qui se joue réellement et rétablir le lien.</li>
+      </ul>
+
+      <h4>2. Thérapie de Couple</h4>
+      <div class="callout">
+        Votre couple est unique : il représente l'attache entre deux êtres qui se sont choisis.
+      </div>
+      <p>
+        Période de turbulences, d'ennui ou d'insatisfactions... Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique offre de nouvelles perspectives pour surmonter ces étapes.
+      </p>
+      <ul>
+        <li><strong>Questionner le lien :</strong> Par différents niveaux de lecture, nous aborderons la communication de votre couple, son histoire, ses rituels et son identité.</li>
+        <li><strong>Redevenir acteur :</strong> L'objectif est de permettre à votre couple de redevenir créatif, d'être "thérapeute de lui-même", et de choisir librement son futur.</li>
+      </ul>
+
+      <h4>3. Guidance Parentale & Accompagnement (Enfant / Adolescent)</h4>
+      <div class="callout">
+        Quelques entretiens peuvent suffire pour débloquer une situation d'impasse et retrouver votre plein potentiel parental.
+      </div>
+      <p>
+        Nos modes de vie qui s'accélèrent, l'isolement ou certains événements de la vie peuvent rendre la relation avec vos enfants plus compliquée. Vous vous interrogez sur vos comportements, vos ressentis, ou les siens.
+      </p>
+      <p><strong>Exemples de situations accompagnées :</strong></p>
+      <ul>
+        <li>Votre enfant ne supporte pas l'autorité, pique des colères ou se montre parfois violent.</li>
+        <li>Vous vous sentez dans l'impuissance et avez du mal à vous maîtriser face à lui.</li>
+        <li>Votre enfant s'isole, ne vous parle plus ou semble triste.</li>
+        <li>Des difficultés apparaissent à l'école, avec les copains, ou à travers des troubles spécifiques (sommeil, alimentation, addictions).</li>
+      </ul>
+    </section>
+
+    <!-- Qui suis-je ? -->
+    <section id="qui-suis-je" class="card">
+      <h3>Qui suis-je ?</h3>
+      <p>
+        Passionnée par la relation d'aide, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong> en tant qu'assistante sociale, notamment dans le cadre de la protection de l'enfance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.
+      </p>
+
+      <h4>Mon Parcours</h4>
+      <ul>
+        <li>Thérapeute au Centre Hospitalier Spécialisé de la Savoie, avec supervision régulière.</li>
+        <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
+        <li>Formation en thérapie systémique (couples et familles) à l'institut ESA, membre associé EFTA (2013-2018).</li>
+        <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique (Faculté de médecine Grenoble/Chambéry, 2009-2011).</li>
+        <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
+      </ul>
+    </section>
+
+    <!-- Tarifs & Contact -->
+    <section id="contact" class="card">
+      <h3>Informations, Tarifs & Contact</h3>
+      <p>
+        Les consultations se déroulent au <strong>Cabinet de Thérapie Chartreuse</strong> (Saint-Étienne-de-Crossey, près de Voiron), dans un cadre libéral qui vous garantit un espace d'écoute totalement privé et soumis au strict secret professionnel.
+      </p>
+      
+      <div class="price-grid">
+        <div class="price-item">
+          <span class="price-item-title">Enfants / Adolescents</span>
+          <span class="price-item-cost">35 €</span>
+          <span class="price-item-desc">Séance de 30 min</span>
+        </div>
+        <div class="price-item">
+          <span class="price-item-title">Adultes</span>
+          <span class="price-item-cost">60 €</span>
+          <span class="price-item-desc">Séance de 45 min</span>
+        </div>
+        <div class="price-item">
+          <span class="price-item-title">Thérapie de couple</span>
+          <span class="price-item-cost">100 €</span>
+          <span class="price-item-desc">Séance de 1h à 1h15</span>
+        </div>
+        <div class="price-item">
+          <span class="price-item-title">Thérapie familiale</span>
+          <span class="price-item-cost">120 €</span>
+          <span class="price-item-desc">Séance de 1h30</span>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 1.5rem;"><em>(Note : Les séances ne sont pas remboursées par la Sécurité Sociale)</em></p>
+
+      <h4>Durée de l'accompagnement</h4>
+      <p>
+        La durée des thérapies est variable et s'adapte à vos besoins. Dans la majorité des situations, l'approche systémique s'inscrit dans les <strong>thérapies brèves</strong>. Les thérapies familiales durent souvent moins d'un an, avec une moyenne de 3 à 6 séances espacées de 4 semaines.
+      </p>
+
+      <h4>Prendre Rendez-vous</h4>
+      <p>
+        Afin de préserver la qualité d'écoute lors de mes consultations et de vous répondre dans les meilleures conditions, la prise de contact initiale se fait via ce formulaire sécurisé. Je vous recontacterai rapidement pour échanger sur votre demande et vous proposer un créneau.
+      </p>
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="margin-top: 1.5rem;">
+        <!-- Remplacer la value par la clé Web3Forms d'Isabelle -->
+        <input type="hidden" name="access_key" value="VOTRE_CLE_ICI">
+        <input type="hidden" name="subject" value="Nouvelle demande de prise de contact (Site Internet)">
+        <input type="hidden" name="from_name" value="Site Isabelle">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstname">Votre Prénom *</label>
+            <input type="text" id="firstname" name="Prénom" required placeholder="Ex: Marie" />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Votre Nom *</label>
+            <input type="text" id="lastname" name="Nom" required placeholder="Ex: Dupont" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Votre Email *</label>
+            <input type="email" id="email" name="Email" required placeholder="votre@email.fr" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Votre Numéro de téléphone *</label>
+            <input type="tel" id="phone" name="Téléphone" required placeholder="06 XX XX XX XX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="motif">Motif de la consultation *</label>
+          <select id="motif" name="Motif" required>
+            <option value="" disabled selected>Sélectionnez un motif...</option>
+            <option value="Thérapie familiale">Thérapie familiale</option>
+            <option value="Thérapie de couple">Thérapie de couple</option>
+            <option value="Guidance parentale">Guidance parentale</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Votre message (facultatif)</label>
+          <textarea id="message" name="Message" placeholder="Veuillez préciser votre demande en quelques mots si vous le souhaitez."></textarea>
+        </div>
+        <div id="form-status" class="form-status" aria-live="polite"></div>
+        <button type="submit" class="btn-submit">Envoyer ma demande</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────── -->
+  <footer>
+    <p>Cabinet de Thérapie Chartreuse &ndash; Isabelle</p>
+    <p>Psychopraticienne et Thérapeute Systémique à Saint-Étienne-de-Crossey</p>
+  </footer>
+
+  <!-- ── JS ───────────────────────────────────────────── -->
+  <script>
+    // Navigation Mobile
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Gestion des Thèmes
+    const themeDots = document.querySelectorAll('.theme-dot');
+    const root = document.documentElement;
+    // Vérifier si un thème est sauvegardé
+    const savedTheme = localStorage.getItem('isa-theme');
+    if (savedTheme) { root.setAttribute('data-theme', savedTheme); }
+
+    themeDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const t = dot.getAttribute('data-t');
+        root.setAttribute('data-theme', t);
+        localStorage.setItem('isa-theme', t);
+      });
+    });
+
+    // Formulaire Web3Forms AJAX
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Vérification de la clé
+        if (form.querySelector('input[name="access_key"]').value === 'VOTRE_CLE_ICI') {
+          status.className = 'form-status error';
+          status.textContent = 'Attention: Le formulaire n\'est pas encore relié (Clé manquante).';
+          return;
+        }
+
+        const btn = form.querySelector('.btn-submit');
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
+        status.className = 'form-status';
+        status.textContent = '';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          const json = await res.json();
+          if (res.status === 200) {
+            status.className = 'form-status success';
+            status.textContent = '✓ Merci. Votre demande a bien été envoyée, je vous recontacte rapidement.';
+            form.reset();
+          } else {
+            console.error(json);
+            throw new Error();
+          }
+        } catch {
+          status.className = 'form-status error';
+          status.textContent = 'Une erreur est survenue lors de l\'envoi. Merci de réessayer plus tard.';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Envoyer ma demande';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
