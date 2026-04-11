@@ -158,37 +158,54 @@
     header {
       background: var(--card); border-bottom: 1px solid var(--border);
       padding: var(--hero-pad-top) 1.5rem var(--hero-pad-bot);
-      text-align: center; transition: all .35s; position: relative;
+      transition: all .35s; position: relative;
     }
-    [data-theme="sauge"] header::after {
-      content: ''; display: block; width: 40px; height: 1px;
-      background: var(--accent); margin: 1.25rem auto 0; opacity: .5;
+
+    /* Layout Hero : photo gauche + texte droite */
+    .hero-inner {
+      max-width: 920px; margin: 0 auto;
+      display: grid; grid-template-columns: 340px 1fr;
+      gap: 3.5rem; align-items: center;
     }
-    [data-theme="lin"] header::after {
-      content: ''; display: block; width: 4px; height: 4px;
-      background: var(--accent); margin: 1.25rem auto 0; transform: rotate(45deg); opacity: .6;
+    .hero-photo {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      border: 1px solid var(--border);
     }
-    header h1 {
-      font-family: var(--h-family); font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+    .hero-text { text-align: left; }
+    .hero-text h1 {
+      font-family: var(--h-family); font-size: clamp(1.85rem, 3vw, 2.5rem);
       font-weight: 600; letter-spacing: -.02em; color: var(--text);
-      margin-bottom: .5rem; line-height: 1.2;
+      margin-bottom: .4rem; line-height: 1.15;
     }
-    header h2 {
-      font-size: 1.05rem; font-weight: 400; color: var(--accent);
-      margin-bottom: 1.5rem; letter-spacing: .02em;
+    .hero-text h2 {
+      font-size: 1rem; font-weight: 400; color: var(--accent);
+      margin-bottom: 1.25rem; letter-spacing: .02em;
     }
-    header .header-intro {
-      max-width: 650px; margin: 1.5rem auto 0;
-      font-size: .95rem; color: var(--muted);
-      line-height: 1.8; text-align: left;
+    .hero-text .hero-tagline {
+      font-size: 1.05rem; color: var(--text); font-weight: 400;
+      line-height: 1.65; margin-bottom: 1.5rem;
+      border-left: 3px solid var(--accent); padding-left: 1rem;
+      font-style: italic;
     }
-    @media(max-width:768px){ header .header-intro { text-align: center; } }
-    
+    .hero-text .hero-intro {
+      font-size: .92rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.75rem;
+    }
+
+    /* Responsive Hero */
+    @media (max-width: 840px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo { max-width: 280px; margin: 0 auto; }
+      .hero-text { text-align: center; }
+      .hero-text .hero-tagline { border-left: none; padding-left: 0; }
+    }
+
     .btn {
-      display: inline-block; margin-top: .5rem; padding: .75rem 2rem;
+      display: inline-block; padding: .8rem 2.25rem;
       background: var(--accent); color: #fff; text-decoration: none;
       border-radius: var(--radius); font-weight: 500; font-size: .95rem;
-      transition: background .2s, transform .1s;
+      transition: background .2s, transform .1s; letter-spacing: .01em;
     }
     .btn:hover { background: var(--accent-h); }
     .btn:active { transform: scale(.98); }
@@ -371,19 +388,20 @@
 
   <!-- ── Hero ─────────────────────────────────────────── -->
   <header id="accueil">
-    <h1>Isabelle</h1>
-    <h2>Psychopraticienne et Thérapeute Systémique</h2>
-    <p>Un espace d'écoute pour vous-même, votre couple ou votre famille.</p>
-    
-    <a href="#contact" class="btn">Prendre rendez-vous</a>
-
-    <div class="header-intro">
-      <strong>Pourquoi consulter ?</strong><br/>
-      Vous traversez une période difficile, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond. Que votre demande concerne votre situation personnelle, votre couple, ou l'un des membres de votre famille, nous pouvons travailler ensemble pour débloquer ces situations.
-    </div>
-
-    <div class="hero-img-container">
-      <img src="assets/image-001.jpg" alt="Cabinet de thérapie" class="img-hero" />
+    <div class="hero-inner">
+      <img src="assets/image-000.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="hero-photo" />
+      <div class="hero-text">
+        <h1>Isabelle</h1>
+        <h2>Psychopraticienne &amp; Thérapeute Systémique</h2>
+        <p class="hero-tagline">Un espace d'écoute pour vous-même, votre couple ou votre famille.</p>
+        <p class="hero-intro">
+          Vous traversez une période difficile, vous tournez en boucle dans des scénarios
+          relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond.
+          Que votre demande concerne votre situation personnelle, votre couple, ou l'un
+          des membres de votre famille — nous pouvons travailler ensemble pour débloquer ces situations.
+        </p>
+        <a href="#contact" class="btn">Prendre rendez-vous</a>
+      </div>
     </div>
   </header>
 
@@ -419,7 +437,7 @@
     <!-- Mes Accompagnements -->
     <section id="accompagnements" class="card">
       <h3>Mes Accompagnements</h3>
-      <img src="assets/image-003.png" alt="Illustration Accompagnements" class="img-illust" />
+      <img src="assets/image-004.jpg" alt="Lien parent-enfant" class="img-illust" style="max-height:220px; object-fit:cover; border-radius:var(--radius); width:100%;" />
 
       <h4>1. Thérapie Familiale</h4>
       <div class="callout">
@@ -464,7 +482,7 @@
     <!-- Qui suis-je ? -->
     <section id="qui-suis-je" class="card">
       <h3>Qui suis-je ?</h3>
-      <img src="assets/image-004.jpg" alt="Portrait Isabelle" class="img-profile" />
+      <img src="assets/image-001.jpg" alt="Cabinet de thérapie Chartreuse" class="img-profile" />
       <p>
         Passionnée par la relation d'aide, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong> en tant qu'assistante sociale, notamment dans le cadre de la protection de l'enfance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.
       </p>
