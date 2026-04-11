@@ -252,6 +252,20 @@
     .price-item-cost { font-size: 1.15rem; font-weight: 600; color: var(--accent); }
     .price-item-desc { font-size: 0.85rem; color: var(--muted); }
 
+    /* Illustrations & Photos (V2) */
+    .img-hero, .img-profile, .img-illust {
+      width: 100%; object-fit: cover; border-radius: calc(var(--radius) * 0.8);
+      margin-bottom: 1.25rem; margin-top: 0.5rem;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    }
+    .img-hero { height: auto; max-height: 400px; border: none; box-shadow: none; border-radius: var(--radius); }
+    .img-profile { max-width: 320px; float: right; margin-left: 1.5rem; }
+    .img-illust { height: auto; max-height: 250px; }
+    .hero-img-container { text-align: center; margin: 2rem auto 0; max-width: 800px; }
+    @media(max-width: 768px) {
+      .img-profile { float: none; max-width: 100%; margin-left: 0; }
+    }
+
     /* ══════════════════════════════════════════════════
        FORMULAIRE DE CONTACT
     ══════════════════════════════════════════════════ */
@@ -362,6 +376,10 @@
       <strong>Pourquoi consulter ?</strong><br/>
       Vous traversez une période difficile, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond. Que votre demande concerne votre situation personnelle, votre couple, ou l'un des membres de votre famille, nous pouvons travailler ensemble pour débloquer ces situations.
     </div>
+
+    <div class="hero-img-container">
+      <img src="assets/image-001.jpg" alt="Cabinet de thérapie" class="img-hero" />
+    </div>
   </header>
 
   <!-- ── Content ──────────────────────────────────────── -->
@@ -370,6 +388,7 @@
     <!-- Mon Approche -->
     <section id="approche" class="card">
       <h3>Mon Approche</h3>
+      <img src="assets/image-002.png" alt="Illustration Approche Systémique" class="img-illust" />
       
       <h4>Une vision globale</h4>
       <p>
@@ -395,6 +414,7 @@
     <!-- Mes Accompagnements -->
     <section id="accompagnements" class="card">
       <h3>Mes Accompagnements</h3>
+      <img src="assets/image-003.png" alt="Illustration Accompagnements" class="img-illust" />
 
       <h4>1. Thérapie Familiale</h4>
       <div class="callout">
@@ -439,6 +459,7 @@
     <!-- Qui suis-je ? -->
     <section id="qui-suis-je" class="card">
       <h3>Qui suis-je ?</h3>
+      <img src="assets/image-004.jpg" alt="Portrait Isabelle" class="img-profile" />
       <p>
         Passionnée par la relation d'aide, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong> en tant qu'assistante sociale, notamment dans le cadre de la protection de l'enfance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.
       </p>
