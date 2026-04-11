@@ -283,6 +283,42 @@
       display: block;
     }
 
+    /* Feature list — titre accentué + texte descriptif (V5) */
+    .feature-list {
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-top: 1.25rem; margin-bottom: .5rem;
+    }
+    .feature-item {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 0 1.25rem; align-items: start;
+      padding: .875rem 1rem;
+      background: var(--accent-bg); border-radius: calc(var(--radius) * .7);
+      border-left: 3px solid var(--accent);
+      transition: background .35s;
+    }
+    .feature-title {
+      font-size: .87rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .04em;
+      padding-top: .1rem; line-height: 1.4;
+    }
+    .feature-desc { font-size: .92rem; color: var(--muted); line-height: 1.7; }
+    @media(max-width: 600px) {
+      .feature-item { grid-template-columns: 1fr; gap: .35rem; }
+    }
+
+    /* Situations list — 1ère personne, style empathique (V5) */
+    .situations-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-top: .5rem; }
+    .situations-list li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      color: var(--muted); font-size: .95rem; font-style: italic; line-height: 1.65;
+    }
+    .situations-list li::before {
+      content: ''; display: block; width: 6px; height: 6px; min-width: 6px;
+      background: var(--accent); border-radius: 50%; margin-top: .55rem;
+      transition: background .35s;
+    }
+
+
     /* ══════════════════════════════════════════════════
        FORMULAIRE DE CONTACT
     ══════════════════════════════════════════════════ */
@@ -430,10 +466,16 @@
         Chaque membre a son importance, une place singulière, et contribue à l'équilibre global.
       </div>
       <p>Vous vivez des moments difficiles, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus ? L'approche systémique s'intéresse avant tout aux interactions au sein de votre famille. Une modification chez l'un des membres amène des changements chez les autres : c'est le fameux « effet papillon » !</p>
-      <ul>
-        <li><strong>Une exploration globale :</strong> Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement.</li>
-        <li><strong>Au-delà des mots :</strong> Parfois, les mots sont comme usés de leur sens entre vous. Nous pourrons alors utiliser d'autres outils non verbaux pour faire apparaître ce qui se joue réellement et rétablir le lien.</li>
-      </ul>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-title">Une exploration globale</span>
+          <span class="feature-desc">Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement.</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-title">Au-delà des mots</span>
+          <span class="feature-desc">Parfois, les mots sont comme usés de leur sens entre vous. Nous pourrons alors utiliser d'autres outils non verbaux pour faire apparaître ce qui se joue réellement et rétablir le lien.</span>
+        </div>
+      </div>
 
       <h4>2. Thérapie de Couple</h4>
       <img src="assets/photo-couple.jpg" alt="Thérapie de couple en cabinet" class="img-section" />
@@ -441,10 +483,16 @@
         Votre couple est unique : il représente l'attache entre deux êtres qui se sont choisis.
       </div>
       <p>Période de turbulences, d'ennui ou d'insatisfactions... Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique ouvre le champ des possibles par la pluralité de points de vue et offre de nouvelles perspectives pour surmonter ces étapes.</p>
-      <ul>
-        <li><strong>Questionner le lien :</strong> Par différents niveaux de lecture, nous aborderons la communication de votre couple, son histoire, ses rituels et son identité.</li>
-        <li><strong>Redevenir acteur :</strong> L'objectif est de permettre à votre couple de redevenir créatif, d'être « thérapeute de lui-même », et de choisir librement son futur.</li>
-      </ul>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-title">Questionner le lien</span>
+          <span class="feature-desc">Par différents niveaux de lecture, nous aborderons la communication de votre couple, son histoire, ses rituels et son identité.</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-title">Redevenir acteur</span>
+          <span class="feature-desc">L'objectif est de permettre à votre couple de redevenir créatif, d'être « thérapeute de lui-même », et de choisir librement son futur.</span>
+        </div>
+      </div>
 
       <h4>3. Guidance Parentale &amp; Accompagnement (Enfant / Adolescent)</h4>
       <img src="assets/image-004.jpg" alt="Lien parent-enfant" class="img-section" />
@@ -452,12 +500,13 @@
         Quelques entretiens peuvent suffire pour débloquer une situation d'impasse et retrouver votre plein potentiel parental.
       </div>
       <p>Nos modes de vie qui s'accélèrent, l'isolement ou certains événements de la vie peuvent rendre la relation avec vos enfants plus compliquée. Vous vous interrogez sur vos comportements, vos ressentis, ou les siens.</p>
-      <p><strong>Exemples de situations accompagnées :</strong></p>
-      <ul>
-        <li>Votre enfant ne supporte pas l'autorité, pique des colères ou se montre parfois violent.</li>
-        <li>Vous vous sentez dans l'impuissance et avez du mal à vous maîtriser face à lui.</li>
-        <li>Votre enfant s'isole, ne vous parle plus ou semble triste.</li>
-        <li>Des difficultés apparaissent à l'école, avec les copains, ou à travers des troubles spécifiques (sommeil, alimentation, addictions).</li>
+      <p><strong>Vous vous reconnaissez dans l'une de ces situations ?</strong></p>
+      <ul class="situations-list">
+        <li>Mon enfant ne supporte pas l'autorité, il pique des colères, peut se montrer violent, je ne sais plus quoi faire.</li>
+        <li>Je me sens dans l'impuissance et il m'arrive d'avoir du mal à me maîtriser !</li>
+        <li>Mon enfant ne me parle pas, il est triste, je ne le comprends plus.</li>
+        <li>Je sens que mon enfant va mal, c'est compliqué à l'école ou avec ses copains.</li>
+        <li>Mon enfant a des troubles (alimentaires, du sommeil, addictions...) qui m'inquiètent.</li>
       </ul>
     </section>
 
@@ -491,18 +540,18 @@
         </div>
         <div class="price-item">
           <span class="price-item-title">Adultes</span>
-          <span class="price-item-cost">60 €</span>
+          <span class="price-item-cost">55 €</span>
           <span class="price-item-desc">Séance de 45 min</span>
         </div>
         <div class="price-item">
           <span class="price-item-title">Thérapie de couple</span>
-          <span class="price-item-cost">100 €</span>
+          <span class="price-item-cost">85 €</span>
           <span class="price-item-desc">Séance de 1h à 1h15</span>
         </div>
         <div class="price-item">
           <span class="price-item-title">Thérapie familiale</span>
-          <span class="price-item-cost">120 €</span>
-          <span class="price-item-desc">Séance de 1h30</span>
+          <span class="price-item-cost">100 €</span>
+          <span class="price-item-desc">Séance de 1h15 à 1h30</span>
         </div>
       </div>
       <p style="font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 1.5rem;"><em>(Note : Les séances ne sont pas remboursées par la Sécurité Sociale)</em></p>
