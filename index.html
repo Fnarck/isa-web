@@ -269,23 +269,18 @@
     .price-item-cost { font-size: 1.15rem; font-weight: 600; color: var(--accent); }
     .price-item-desc { font-size: 0.85rem; color: var(--muted); }
 
-    /* Illustrations & Photos (V2) */
-    .img-hero, .img-profile {
-      width: 100%; object-fit: cover; border-radius: calc(var(--radius) * 0.8);
-      margin-bottom: 1.25rem; margin-top: 0.5rem;
+    /* Photos pleine largeur — style harmonisé (V4) */
+    .img-section {
+      width: 100%; height: 240px; object-fit: cover;
+      border-radius: var(--radius); margin-bottom: 1.75rem; margin-top: 0.25rem;
       border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      display: block;
     }
-    .img-hero { height: auto; max-height: 400px; border: none; box-shadow: none; border-radius: var(--radius); }
-    .img-profile { max-width: 320px; float: right; margin-left: 1.5rem; }
-    
-    .img-illust {
-      display: block; width: auto; max-width: 100%; height: auto; max-height: 180px;
-      margin: 0.5rem auto 1.5rem; object-fit: contain;
-    }
-    
-    .hero-img-container { text-align: center; margin: 2rem auto 0; max-width: 800px; }
-    @media(max-width: 768px) {
-      .img-profile { float: none; max-width: 100%; margin-left: 0; }
+    .img-profile {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: var(--radius); margin-bottom: 1.5rem;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      display: block;
     }
 
     /* ══════════════════════════════════════════════════
@@ -397,8 +392,8 @@
         <p class="hero-intro">
           Vous traversez une période difficile, vous tournez en boucle dans des scénarios
           relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond.
-          Que votre demande concerne votre situation personnelle, votre couple, ou l'un
-          des membres de votre famille — nous pouvons travailler ensemble pour débloquer ces situations.
+          Que votre demande concerne votre situation personnelle, votre couple, ou votre famille
+          — nous pouvons travailler ensemble pour débloquer ces situations.
         </p>
         <a href="#contact" class="btn">Prendre rendez-vous</a>
       </div>
@@ -411,65 +406,52 @@
     <!-- Mon Approche -->
     <section id="approche" class="card">
       <h3>Mon Approche</h3>
-      <img src="assets/image-002.png" alt="Illustration Approche Systémique" class="img-illust" />
-      
+
       <h4>Une vision globale</h4>
-      <p>
-        Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.
-      </p>
+      <p>Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.</p>
 
       <h4>L'effet papillon</h4>
-      <p>
-        Nous partons du principe qu'une modification chez l'un des membres entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.
-      </p>
+      <p>Nous partons du principe qu'une modification chez l'un des membres entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.</p>
 
       <h4>Une thérapie brève et concrète</h4>
-      <p>
-        L'approche systémique fait partie des <strong>thérapies brèves</strong>. Nous explorons ensemble le problème à l'origine de votre demande en prenant en compte vos différents "systèmes" (famille, travail, activités).
-      </p>
+      <p>L'approche systémique fait partie des <strong>thérapies brèves</strong>. Nous explorons ensemble le problème à l'origine de votre demande en prenant en compte vos différents « systèmes » (famille, travail, activités, environnement social).</p>
 
       <h4>Au-delà des mots</h4>
-      <p>
-        Quand les mots perdent leur sens, nous utilisons d'autres outils non-verbaux pour faire apparaître ce qui se joue vraiment.
-      </p>
+      <p>Quand les mots perdent leur sens, nous utilisons d'autres outils non-verbaux pour faire apparaître ce qui se joue vraiment.</p>
     </section>
 
     <!-- Mes Accompagnements -->
     <section id="accompagnements" class="card">
       <h3>Mes Accompagnements</h3>
-      <img src="assets/image-004.jpg" alt="Lien parent-enfant" class="img-illust" style="max-height:220px; object-fit:cover; border-radius:var(--radius); width:100%;" />
+      <img src="assets/image-001.jpg" alt="Cabinet de Thérapie Chartreuse" class="img-section" />
 
       <h4>1. Thérapie Familiale</h4>
       <div class="callout">
         Chaque membre a son importance, une place singulière, et contribue à l'équilibre global.
       </div>
-      <p>
-        Vous vivez des moments difficiles, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus ? L'approche systémique s'intéresse avant tout aux interactions au sein de votre famille. Nous partons du principe qu'une modification chez l'un des membres amène des changements chez les autres : c'est le fameux « effet papillon » !
-      </p>
+      <p>Vous vivez des moments difficiles, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus ? L'approche systémique s'intéresse avant tout aux interactions au sein de votre famille. Une modification chez l'un des membres amène des changements chez les autres : c'est le fameux « effet papillon » !</p>
       <ul>
         <li><strong>Une exploration globale :</strong> Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement.</li>
         <li><strong>Au-delà des mots :</strong> Parfois, les mots sont comme usés de leur sens entre vous. Nous pourrons alors utiliser d'autres outils non verbaux pour faire apparaître ce qui se joue réellement et rétablir le lien.</li>
       </ul>
 
       <h4>2. Thérapie de Couple</h4>
+      <img src="assets/photo-couple.jpg" alt="Thérapie de couple en cabinet" class="img-section" />
       <div class="callout">
         Votre couple est unique : il représente l'attache entre deux êtres qui se sont choisis.
       </div>
-      <p>
-        Période de turbulences, d'ennui ou d'insatisfactions... Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique offre de nouvelles perspectives pour surmonter ces étapes.
-      </p>
+      <p>Période de turbulences, d'ennui ou d'insatisfactions... Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique ouvre le champ des possibles par la pluralité de points de vue et offre de nouvelles perspectives pour surmonter ces étapes.</p>
       <ul>
         <li><strong>Questionner le lien :</strong> Par différents niveaux de lecture, nous aborderons la communication de votre couple, son histoire, ses rituels et son identité.</li>
-        <li><strong>Redevenir acteur :</strong> L'objectif est de permettre à votre couple de redevenir créatif, d'être "thérapeute de lui-même", et de choisir librement son futur.</li>
+        <li><strong>Redevenir acteur :</strong> L'objectif est de permettre à votre couple de redevenir créatif, d'être « thérapeute de lui-même », et de choisir librement son futur.</li>
       </ul>
 
-      <h4>3. Guidance Parentale & Accompagnement (Enfant / Adolescent)</h4>
+      <h4>3. Guidance Parentale &amp; Accompagnement (Enfant / Adolescent)</h4>
+      <img src="assets/image-004.jpg" alt="Lien parent-enfant" class="img-section" />
       <div class="callout">
         Quelques entretiens peuvent suffire pour débloquer une situation d'impasse et retrouver votre plein potentiel parental.
       </div>
-      <p>
-        Nos modes de vie qui s'accélèrent, l'isolement ou certains événements de la vie peuvent rendre la relation avec vos enfants plus compliquée. Vous vous interrogez sur vos comportements, vos ressentis, ou les siens.
-      </p>
+      <p>Nos modes de vie qui s'accélèrent, l'isolement ou certains événements de la vie peuvent rendre la relation avec vos enfants plus compliquée. Vous vous interrogez sur vos comportements, vos ressentis, ou les siens.</p>
       <p><strong>Exemples de situations accompagnées :</strong></p>
       <ul>
         <li>Votre enfant ne supporte pas l'autorité, pique des colères ou se montre parfois violent.</li>
@@ -482,10 +464,7 @@
     <!-- Qui suis-je ? -->
     <section id="qui-suis-je" class="card">
       <h3>Qui suis-je ?</h3>
-      <img src="assets/image-001.jpg" alt="Cabinet de thérapie Chartreuse" class="img-profile" />
-      <p>
-        Passionnée par la relation d'aide, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong> en tant qu'assistante sociale, notamment dans le cadre de la protection de l'enfance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.
-      </p>
+      <p>Passionnée par la relation d'aide, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong> en tant qu'assistante sociale, notamment dans le cadre de la protection de l'enfance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.</p>
 
       <h4>Mon Parcours</h4>
       <ul>
