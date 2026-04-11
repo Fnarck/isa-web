@@ -286,10 +286,10 @@
     /* About layout — photo + texte côte-à-côte (V7) */
     .about-inner {
       display: grid; grid-template-columns: 200px 1fr;
-      gap: 2rem; align-items: start;
+      gap: 2rem; align-items: stretch;
     }
     .about-photo {
-      width: 200px; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      width: 200px; height: 100%; object-fit: cover; object-position: top;
       border-radius: 1rem; box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
     }
