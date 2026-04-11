@@ -253,14 +253,19 @@
     .price-item-desc { font-size: 0.85rem; color: var(--muted); }
 
     /* Illustrations & Photos (V2) */
-    .img-hero, .img-profile, .img-illust {
+    .img-hero, .img-profile {
       width: 100%; object-fit: cover; border-radius: calc(var(--radius) * 0.8);
       margin-bottom: 1.25rem; margin-top: 0.5rem;
       border: 1px solid var(--border); box-shadow: var(--shadow-sm);
     }
     .img-hero { height: auto; max-height: 400px; border: none; box-shadow: none; border-radius: var(--radius); }
     .img-profile { max-width: 320px; float: right; margin-left: 1.5rem; }
-    .img-illust { height: auto; max-height: 250px; }
+    
+    .img-illust {
+      display: block; width: auto; max-width: 100%; height: auto; max-height: 180px;
+      margin: 0.5rem auto 1.5rem; object-fit: contain;
+    }
+    
     .hero-img-container { text-align: center; margin: 2rem auto 0; max-width: 800px; }
     @media(max-width: 768px) {
       .img-profile { float: none; max-width: 100%; margin-left: 0; }
