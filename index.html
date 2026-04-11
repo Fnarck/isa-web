@@ -283,7 +283,22 @@
       display: block;
     }
 
-    /* Feature list — titre accentué + texte descriptif (V5) */
+    /* About layout — photo + texte côte-à-côte (V7) */
+    .about-inner {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 2rem; align-items: start;
+    }
+    .about-photo {
+      width: 200px; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      border-radius: 1rem; box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .about-text > p { margin-bottom: .85rem; font-size: .98rem; color: var(--muted); line-height: 1.8; }
+    .about-text > p:last-child { margin-bottom: 0; }
+    @media (max-width: 620px) {
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo { width: 160px; margin: 0 auto; }
+    }
     .feature-list {
       display: flex; flex-direction: column; gap: 1rem;
       margin-top: 1.25rem; margin-bottom: .5rem;
@@ -513,17 +528,20 @@
     <!-- Qui suis-je ? -->
     <section id="qui-suis-je" class="card">
       <h3>Qui suis-je ?</h3>
-      <img src="assets/isabelle-about.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="img-section" style="height:320px; object-position: top;" />
-      <p>Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.</p>
-
-      <h4>Mon Parcours</h4>
-      <ul>
-        <li>Thérapeute au Centre Hospitalier Spécialisé de la Savoie, avec supervision régulière.</li>
-        <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
-        <li>Formation en thérapie systémique (couples et familles) à l'institut ESA, membre associé EFTA (2013-2018).</li>
-        <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique (Faculté de médecine Grenoble/Chambéry, 2009-2011).</li>
-        <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
-      </ul>
+      <div class="about-inner">
+        <img src="assets/isabelle-about.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="about-photo" />
+        <div class="about-text">
+          <p>Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.</p>
+          <h4 style="margin-top:1.25rem; margin-bottom:.75rem;">Mon Parcours</h4>
+          <ul>
+            <li>Thérapeute au Centre Hospitalier Spécialisé de la Savoie, avec supervision régulière.</li>
+            <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
+            <li>Formation en thérapie systémique (couples et familles) à l'institut ESA, membre associé EFTA (2013-2018).</li>
+            <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique (Faculté de médecine Grenoble/Chambéry, 2009-2011).</li>
+            <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- Tarifs & Contact -->
