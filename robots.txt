@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://therapeutechartreuse.fr/sitemap.xml
+
+# Crawlers IA (optionnel — retirer ces lignes pour laisser indexer les LLMs)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: anthropic-ai
+# Disallow: /
