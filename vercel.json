@@ -1,0 +1,23 @@
+{
+  "name": "isa-web",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "therapiechartreuse.fr" }],
+      "destination": "https://therapeutechartreuse.fr/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.therapiechartreuse.fr" }],
+      "destination": "https://therapeutechartreuse.fr/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.therapeutechartreuse.fr" }],
+      "destination": "https://therapeutechartreuse.fr/$1",
+      "permanent": true
+    }
+  ]
+}
