@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="sauge">
+<html lang="fr" data-theme="blanc">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -72,7 +72,7 @@
 
   <style>
     /* ══════════════════════════════════════════════════
-       TOKENS — 3 THÈMES
+       TOKENS — THÈME BLANC
     ══════════════════════════════════════════════════ */
 
     /* ── Blanc ─────────────────────────────── */
@@ -91,52 +91,6 @@
       --shadow-md:    0 6px 20px rgba(0,0,0,.08);
       --nav-blur:     rgba(255,255,255,.92);
       --radius:       1rem;
-      --callout-style: italic;
-      --h-family:     'Inter', system-ui, sans-serif;
-      --body-family:  'Inter', system-ui, sans-serif;
-      --hero-pad-top: 5rem;
-      --hero-pad-bot: 4rem;
-    }
-
-    /* ── Sauge (Défaut) ────────────────────── */
-    [data-theme="sauge"] {
-      --bg:           #f3f0e8;
-      --card:         #faf9f4;
-      --border:       #ddd8cc;
-      --accent:       #5b7a5e;
-      --accent-h:     #445d47;
-      --accent-bg:    #eef3ee;
-      --accent-brd:   #c4d4c5;
-      --text:         #2d3028;
-      --muted:        #6b6e5f;
-      --strong:       #1e2119;
-      --shadow-sm:    0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03);
-      --shadow-md:    0 8px 24px rgba(0,0,0,.08);
-      --nav-blur:     rgba(243,240,232,.93);
-      --radius:       .875rem;
-      --callout-style: italic;
-      --h-family:     'Inter', system-ui, sans-serif;
-      --body-family:  'Inter', system-ui, sans-serif;
-      --hero-pad-top: 5.5rem;
-      --hero-pad-bot: 4.5rem;
-    }
-
-    /* ── Lin ───────────────────────────────── */
-    [data-theme="lin"] {
-      --bg:           #eeebe4;
-      --card:         #f9f7f3;
-      --border:       #ddd5c8;
-      --accent:       #8b6f5e;
-      --accent-h:     #6e5548;
-      --accent-bg:    #f5ede9;
-      --accent-brd:   #d9bfb7;
-      --text:         #302820;
-      --muted:        #7a6458;
-      --strong:       #201810;
-      --shadow-sm:    0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.03);
-      --shadow-md:    0 8px 24px rgba(0,0,0,.09);
-      --nav-blur:     rgba(238,235,228,.93);
-      --radius:       .75rem;
       --callout-style: italic;
       --h-family:     'Inter', system-ui, sans-serif;
       --body-family:  'Inter', system-ui, sans-serif;
@@ -183,22 +137,6 @@
       transition: color .2s; font-weight: 400; letter-spacing: .01em;
     }
     .nav-links a:hover { color: var(--accent); }
-
-    /* Switcher Thémes */
-    .theme-switcher { display: flex; align-items: center; gap: .45rem; }
-    .theme-dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      border: 2px solid transparent; cursor: pointer;
-      transition: transform .2s, border-color .2s;
-    }
-    .theme-dot[data-t="blanc"] { background: #0d766e; }
-    .theme-dot[data-t="sauge"] { background: #5b7a5e; }
-    .theme-dot[data-t="lin"] { background: #8b6f5e; }
-    [data-theme="blanc"] .theme-dot[data-t="blanc"],
-    [data-theme="sauge"] .theme-dot[data-t="sauge"],
-    [data-theme="lin"] .theme-dot[data-t="lin"] {
-      border-color: var(--text); transform: scale(1.2);
-    }
 
     /* Mobile */
     .nav-toggle {
@@ -295,7 +233,6 @@
       color: var(--text); margin-top: 1.5rem; margin-bottom: .5rem;
     }
     .card p { color: var(--muted); margin-bottom: .9rem; font-size: .98rem; }
-    [data-theme="sauge"] .card p { font-size: 1.02rem; line-height: 1.8; }
     .card p:last-child { margin-bottom: 0; }
     
     /* Listes stylisées */
@@ -303,12 +240,10 @@
     .card ul li {
       color: var(--muted); font-size: .98rem; display: flex; align-items: flex-start; gap: .75rem;
     }
-    [data-theme="sauge"] .card ul li { font-size: 1.02rem; }
     .card ul li::before {
       content: ''; display: block; width: 5px; height: 5px; min-width: 5px;
       background: var(--accent); border-radius: 50%; margin-top: .65rem; transition: background .35s;
     }
-    [data-theme="lin"] .card ul li::before { border-radius: 1px; transform: rotate(45deg); width: 6px; height: 6px; }
 
     /* Callout / Insert */
     .callout {
@@ -317,7 +252,6 @@
       color: var(--text); font-size: .95rem; margin-top: 1.25rem; margin-bottom: 1.25rem;
       font-style: var(--callout-style); transition: all .35s;
     }
-    [data-theme="sauge"] .callout { font-size: 1rem; line-height: 1.8; }
     
     /* Layout pour les tarifs */
     .price-grid {
@@ -396,6 +330,17 @@
       transition: background .35s;
     }
 
+    /* Intro paragraph — approche systémique */
+    .approche-intro {
+      font-size: 1rem; color: var(--text); font-weight: 500;
+      line-height: 1.75; margin-bottom: 1.5rem;
+      border-left: 3px solid var(--accent); padding-left: 1rem;
+      background: var(--accent-bg); border-radius: 0 .5rem .5rem 0;
+      padding: 1rem 1.25rem;
+    }
+    .approche-intro em {
+      font-style: italic; font-weight: 400; color: var(--muted);
+    }
 
     /* ══════════════════════════════════════════════════
        FORMULAIRE DE CONTACT
@@ -475,18 +420,11 @@
       <div class="nav-right">
         <ul class="nav-links" id="nav-links">
           <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
           <li><a href="#approche">Mon Approche</a></li>
           <li><a href="#accompagnements">Mes Accompagnements</a></li>
-          <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
           <li><a href="#contact">Tarifs & Contact</a></li>
         </ul>
-
-        <!-- Switcher Thèmes CSS -->
-        <div class="theme-switcher" aria-label="Choisir un thème">
-          <button class="theme-dot" data-t="blanc" aria-label="Thème clair"></button>
-          <button class="theme-dot" data-t="sauge" aria-label="Thème sauge"></button>
-          <button class="theme-dot" data-t="lin" aria-label="Thème lin"></button>
-        </div>
 
         <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -503,7 +441,7 @@
         <h1>Isabelle</h1>
         <h2>Psychopraticienne &amp; Thérapeute Systémique</h2>
         <p class="hero-specialties">Thérapie de couple &nbsp;·&nbsp; Thérapie familiale</p>
-        <p class="hero-tagline">Un espace d'écoute pour vous-même, votre couple ou votre famille.</p>
+        <p class="hero-tagline">Un espace d'écoute thérapeutique pour vous-même, votre couple ou votre famille.</p>
         <p class="hero-intro">
           Vous traversez une période difficile, vous tournez en boucle dans des scénarios
           relationnels qui ne vous conviennent plus, ou vous ressentez un mal-être profond.
@@ -518,21 +456,55 @@
   <!-- ── Content ──────────────────────────────────────── -->
   <main>
 
+    <!-- Qui suis-je ? (déplacé ici — après le hero, avant Mon Approche) -->
+    <section id="qui-suis-je" class="card">
+      <h3>Qui suis-je ?</h3>
+
+      <!-- Photo + intro côte-à-côte -->
+      <div class="about-inner">
+        <img src="assets/isabelle-about.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="about-photo" />
+        <div class="about-text">
+          <p>Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants, ancrée dans les valeurs de respect, dignité et de bienveillance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la globalité de l'Être, afin de retrouver un état d'harmonie intérieur en s'appuyant sur vos propres ressources.</p>
+        </div>
+      </div>
+
+      <!-- Parcours pleine largeur en dessous -->
+      <h4 style="margin-top: 1.75rem; margin-bottom: .75rem;">Mon Parcours, mes formations</h4>
+      <ul>
+        <li>Thérapeute au Centre Hospitalier Spécialisé (CHS) de la Savoie, avec supervision régulière.</li>
+        <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
+        <li>Formation en thérapie systémique (couples et familles) au CHS de Bassens/Chambéry, centre de formation Eco Système Association (ESA), membre associé EFTA (2013-2018).</li>
+        <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique (Faculté de médecine Grenoble/Chambéry, 2009-2011).</li>
+        <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
+      </ul>
+    </section>
+
     <!-- Mon Approche -->
     <section id="approche" class="card">
       <h3>Mon Approche</h3>
 
+      <p class="approche-intro">Je vous propose l'approche systémique issue de la théorie des systèmes qui permet une vision globale en vue d'apporter une transformation de votre situation actuelle <em>(difficultés ou problèmes psychologiques ou comportementaux du couple ou de la famille)</em> qui vous amène à consulter seul(e), en couple ou en famille.</p>
+
       <h4>Une vision globale</h4>
-      <p>Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.</p>
+      <p>Je vais prendre en compte une famille ou le couple comme un système. Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.</p>
 
       <h4>L'effet papillon</h4>
-      <p>Nous partons du principe qu'une modification chez l'un des membres entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.</p>
+      <p>Nous partons du principe que la modification chez une personne entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.</p>
 
       <h4>Une thérapie brève et concrète</h4>
-      <p>L'approche systémique fait partie des <strong>thérapies brèves</strong>. Nous explorons ensemble le problème à l'origine de votre demande en prenant en compte vos différents « systèmes » (famille, travail, activités, environnement social).</p>
+      <p>L'approche systémique fait partie des <strong>thérapies brèves</strong>, généralement de quelques séances toutes les 4 semaines. Nous explorons ensemble le problème à l'origine de votre demande en prenant en compte vos différents groupes « systèmes » : famille, travail, activités, environnement social.</p>
 
       <h4>Au-delà des mots</h4>
       <p>Quand les mots perdent leur sens, nous utilisons d'autres outils non-verbaux pour faire apparaître ce qui se joue vraiment.</p>
+
+      <h4>Comment se déroulent les séances ?</h4>
+      <p>Après avoir fait connaissance, je vous proposerai des entretiens ensemble ou séparément en fonction des séances. Lors d'une thérapie de couple ou de famille, il y aura des entretiens avec un seul membre du couple, avec les deux membres du couple, avec l'ensemble de la famille, avec les parents uniquement, avec les enfants uniquement.</p>
+      <p>En fonction du déroulé des consultations, j'utiliserai des méthodes et des outils que je choisirai en fonction de ce qui se passe pendant les séances et entre les séances. La thérapie n'est pas qu'un espace d'écoute active et des échanges. Les outils peuvent être créatifs, utilisés pendant la séance ou chez vous. Nous pouvons parfois bouger physiquement dans la salle, écrire ou dessiner sur un tableau blanc.</p>
+
+      <h4>Qui vient ?</h4>
+      <p>Vous prenez contact directement ou suite à la proposition d'un médecin ou une personne de votre entourage qui vous a conseillé de faire une thérapie de couple ou de famille ou une guidance parentale.</p>
+      <p>Lors du premier entretien ou de notre premier échange téléphonique, nous aborderons qui vous voulez inviter, qui est important pour vous.</p>
+      <p>Aujourd'hui, il y a plusieurs modèles de familles : vous pouvez venir le couple parental avec ses enfants ou une maman seule / un papa seul avec ses enfants, inviter une grand-mère, un frère, une tante…</p>
     </section>
 
     <!-- Mes Accompagnements -->
@@ -542,26 +514,42 @@
 
       <h4>1. Thérapie Familiale</h4>
       <div class="callout">
-        Chaque membre a son importance, une place singulière, et contribue à l'équilibre global.
+        Chaque membre a son importance, une place singulière, et contribue à l'équilibre global. Dans le système familial, les personnes s'influencent et sont interdépendantes.
       </div>
-      <p>Vous vivez des moments difficiles, vous tournez en boucle dans des scénarios relationnels qui ne vous conviennent plus ? L'approche systémique s'intéresse avant tout aux interactions au sein de votre famille. Une modification chez l'un des membres amène des changements chez les autres : c'est le fameux « effet papillon » !</p>
+
       <div class="feature-list">
         <div class="feature-item">
           <span class="feature-title">Une exploration globale</span>
-          <span class="feature-desc">Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement.</span>
+          <span class="feature-desc">Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement tout en adaptant la thérapie à la singularité des personnes et de ses symptômes.</span>
         </div>
+      </div>
+
+      <p style="margin-top: 1.5rem;"><strong>Quelques exemples de demandes de consultation</strong></p>
+      <ul class="situations-list">
+        <li>Vous avez vécu des événements difficiles</li>
+        <li>Un ou plusieurs membres de la famille souffrent particulièrement, présentent des troubles (maladie, addiction, problème de comportement, violence, perte de contrôle, difficultés diverses)</li>
+        <li>C'est plus compliqué dans la famille, vous ne savez plus quoi faire</li>
+        <li>Vous n'arrivez plus à vivre dans la tranquillité</li>
+        <li>L'ambiance est triste ou tendue</li>
+        <li>Vous vous éloignez sans le vouloir</li>
+        <li>Vous voulez que chacun trouve ou retrouve sa place dans la famille</li>
+        <li>Vous vous dites qu'il y a des problèmes de communication dans votre famille</li>
+      </ul>
+
+      <div class="feature-list" style="margin-top: 1.5rem;">
         <div class="feature-item">
-          <span class="feature-title">Au-delà des mots</span>
-          <span class="feature-desc">Parfois, les mots sont comme usés de leur sens entre vous. Nous pourrons alors utiliser d'autres outils non verbaux pour faire apparaître ce qui se joue réellement et rétablir le lien.</span>
+          <span class="feature-title">Une thérapie adaptée</span>
+          <span class="feature-desc">Les entretiens et méthodes stratégiques s'adaptent à votre famille et font apparaître ce qui se joue réellement. La finalité de la thérapie est de résoudre une situation de souffrance, permettre la disparition des symptômes et de rétablir les liens entre vous, retrouver votre équilibre et le bien-être de l'ensemble de la famille.</span>
         </div>
       </div>
 
       <h4>2. Thérapie de Couple</h4>
       <img src="assets/photo-couple.jpg" alt="Thérapie de couple en cabinet" class="img-section" />
       <div class="callout">
-        Votre couple est unique : il représente l'attache entre deux êtres qui se sont choisis.
+        Votre couple est unique : il représente les liens et projets, entre deux êtres qui se sont choisis.
       </div>
-      <p>Période de turbulences, d'ennui ou d'insatisfactions... Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique ouvre le champ des possibles par la pluralité de points de vue et offre de nouvelles perspectives pour surmonter ces étapes.</p>
+      <p>Vous souffrez ou vous vous interrogez sur votre couple et votre vision commune de l'avenir ?</p>
+      <p>Période de turbulences, de sens, d'ennui ou d'insatisfactions, de doutes… Les couples ne cessent d'étonner par leur complexité et leur part de rêve. La thérapie systémique ouvre le champ des possibles par la pluralité de points de vue et offre de nouvelles perspectives pour surmonter ces étapes.</p>
       <div class="feature-list">
         <div class="feature-item">
           <span class="feature-title">Questionner le lien</span>
@@ -569,7 +557,7 @@
         </div>
         <div class="feature-item">
           <span class="feature-title">Redevenir acteur</span>
-          <span class="feature-desc">L'objectif est de permettre à votre couple de redevenir créatif, d'être «thérapeute de lui-même», et de choisir librement son futur.</span>
+          <span class="feature-desc">L'objectif est de permettre à votre couple de redevenir créatif, d'être «thérapeute de lui-même» et de choisir librement son futur.</span>
         </div>
       </div>
 
@@ -588,30 +576,6 @@
         <li>Mon enfant a des troubles (alimentaires, du sommeil, addictions...) qui m'inquiètent.</li>
       </ul>
     </section>
-
-    <!-- Qui suis-je ? -->
-    <section id="qui-suis-je" class="card">
-      <h3>Qui suis-je ?</h3>
-
-      <!-- Photo + intro côte-à-côte -->
-      <div class="about-inner">
-        <img src="assets/isabelle-about.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="about-photo" />
-        <div class="about-text">
-          <p>Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la santé globale de chacun, afin de retrouver un état d'harmonie autonome en s'appuyant sur vos propres ressources.</p>
-        </div>
-      </div>
-
-      <!-- Parcours pleine largeur en dessous -->
-      <h4 style="margin-top: 1.75rem; margin-bottom: .75rem;">Mon Parcours</h4>
-      <ul>
-        <li>Thérapeute au Centre Hospitalier Spécialisé de la Savoie, avec supervision régulière.</li>
-        <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
-        <li>Formation en thérapie systémique (couples et familles) à l'institut ESA, membre associé EFTA (2013-2018).</li>
-        <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique (Faculté de médecine Grenoble/Chambéry, 2009-2011).</li>
-        <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
-      </ul>
-    </section>
-
 
     <!-- Tarifs & Contact -->
     <section id="contact" class="card">
@@ -721,21 +685,6 @@
       a.addEventListener('click', () => {
         links.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Gestion des Thèmes
-    const themeDots = document.querySelectorAll('.theme-dot');
-    const root = document.documentElement;
-    // Vérifier si un thème est sauvegardé
-    const savedTheme = localStorage.getItem('isa-theme');
-    if (savedTheme) { root.setAttribute('data-theme', savedTheme); }
-
-    themeDots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const t = dot.getAttribute('data-t');
-        root.setAttribute('data-theme', t);
-        localStorage.setItem('isa-theme', t);
       });
     });
 
