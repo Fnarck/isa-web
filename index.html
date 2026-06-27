@@ -395,6 +395,23 @@
     .card:nth-child(4) { animation-delay: .25s; }
     .card:nth-child(5) { animation-delay: .32s; }
 
+    /* Layout contact formulaire + coordonnées */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      margin-top: 1.5rem;
+      align-items: start;
+    }
+    .contact-right {
+      border-left: 1px solid var(--border);
+      padding-left: 2.5rem;
+    }
+    .contact-right h4 {
+      margin-top: 0 !important;
+      margin-bottom: 1rem !important;
+    }
+
     @media (max-width: 720px) {
       .nav-links { display: none; flex-direction: column; gap: 0; }
       .nav-links.open {
@@ -406,6 +423,17 @@
       .nav-right { gap: 1rem; }
       .card { padding: 1.75rem 1.25rem; }
       header { padding: 3rem 1.25rem 2.5rem; }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .contact-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border);
+        padding-top: 1.75rem;
+      }
     }
   </style>
 </head>
@@ -439,7 +467,7 @@
       <div class="hero-text">
         <h1>Isabelle Résibois</h1>
         <h2>Psychopraticienne &amp; Thérapeute Systémique</h2>
-        <p class="hero-specialties">Thérapie de couple &nbsp;·&nbsp; Thérapie familiale</p>
+        <p class="hero-specialties">Thérapie individuelle &nbsp;·&nbsp; Thérapie de couple &nbsp;·&nbsp; Thérapie familiale</p>
         <p class="hero-tagline">Un espace d'écoute thérapeutique pour vous-même, votre couple ou votre famille.</p>
         <p class="hero-intro">
           Vous traversez une période difficile, vous tournez en boucle dans des scénarios
@@ -447,7 +475,20 @@
           Que votre demande concerne votre situation personnelle, votre couple, ou votre famille
           — nous pouvons travailler ensemble pour débloquer ces situations.
         </p>
-        <a href="#contact" class="btn">Prendre rendez-vous</a>
+        
+        <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+          <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 0; line-height: 1.6;">
+            Par téléphone au : 
+            <span class="phone-security-wrapper" data-phone-obfuscated="MDYzMTQ5Nzc2OA==">
+              <span class="phone-reveal-btn" style="cursor: pointer; color: var(--accent); font-weight: 600; text-decoration: underline;">Afficher le numéro</span>
+            </span>
+            <br>
+            Ou en ligne :
+          </p>
+          <div>
+            <a href="#contact" class="btn">Prendre rendez-vous</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -459,24 +500,20 @@
     <section id="qui-suis-je" class="card">
       <h3>Qui suis-je ?</h3>
 
-      <!-- Photo + intro côte-à-côte -->
-      <div class="about-inner">
-        <img src="assets/isabelle-about.jpg" alt="Isabelle, psychopraticienne et thérapeute systémique" class="about-photo" />
-        <div class="about-text">
-          <p>Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants, ancrée dans les valeurs de respect, dignité et de bienveillance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la globalité de l'Être, afin de retrouver un état d'harmonie intérieur en s'appuyant sur vos propres ressources.</p>
-        </div>
-      </div>
+      <p style="font-size: .98rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem;">Passionnée par la relation d'aide et assistante sociale de formation, j'accompagne des personnes et des familles depuis <strong>plus de 30 ans</strong>, notamment dans le cadre de la protection des enfants, ancrée dans les valeurs de respect, dignité et de bienveillance. J'ai complété cette expérience par une solide formation universitaire pour prendre en compte la globalité de l'Être, afin de retrouver un état d'harmonie intérieure en s'appuyant sur vos propres ressources.</p>
 
       <!-- Parcours pleine largeur en dessous -->
       <h4 style="margin-top: 1.75rem; margin-bottom: .75rem;">Mon Parcours, Mes formations</h4>
       <ul>
         <li>Thérapeute au Centre Hospitalier Spécialisé (CHS) de la Savoie, avec supervision régulière.</li>
         <li>Formation de perfectionnement en thérapie de couples, à Genève (2022).</li>
-        <li>Formation en thérapie systémique (couples et familles) au CHS de Bassens/Chambéry, centre de formation Eco Système Association (ESA), membre associé EFTA (2013-2018).</li>
+        <li>Formation en thérapie systémique (couples et familles) au CHS de la Savoie, à Bassens, centre de formation Eco Système Association (ESA), membre associé EFTA (2013-2018).</li>
         <li>Diplôme Universitaire de 3ème cycle en approche thérapeutique systémique, Faculté de médecine Grenoble/Chambéry (2009-2011).</li>
         <li>Licence de sciences sanitaires et sociales (1994) et Brevet d'État d'Assistante sociale (1991).</li>
       </ul>
     </section>
+
+    <img src="assets/paysage-coquelicots.jpg" alt="Paysage de la Chartreuse" class="img-section" style="margin-bottom: 1.75rem;" />
 
     <!-- Mon Approche -->
     <section id="approche" class="card">
@@ -485,7 +522,7 @@
       <p class="approche-intro">Je vous propose l'approche systémique issue de la théorie des systèmes qui permet une vision globale en vue d'apporter une transformation de votre situation actuelle <em>(difficultés ou problèmes psychologiques ou comportementaux du couple ou de la famille)</em> qui vous amène à consulter seul(e), en couple ou en famille.</p>
 
       <h4>Une vision globale</h4>
-      <p>Je vais prendre en compte une famille ou le couple comme un système. Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple.</p>
+      <p>Je vais prendre en compte une famille, le couple ou une personne comme un système. Les théories des systèmes s'intéressent avant tout aux interactions entre les personnes au sein d'une famille ou d'un couple ou d’une personne avec son environnement.</p>
 
       <h4>L'effet papillon</h4>
       <p>Nous partons du principe que la modification chez une personne entraîne des changements chez les autres. Chaque personne a une place singulière et contribue à l'équilibre du groupe.</p>
@@ -496,14 +533,15 @@
       <h4>Au-delà des mots</h4>
       <p>Quand les mots perdent leur sens, nous utilisons d'autres outils non-verbaux pour faire apparaître ce qui se joue vraiment.</p>
 
-      <h4>Comment se déroulent les séances ?</h4>
-      <p>Après avoir fait connaissance, je vous proposerai des entretiens ensemble ou séparément en fonction des séances. Lors d'une thérapie de couple ou de famille, il peut y avoir des entretiens avec un seul membre du couple, avec les deux membres du couple, avec l'ensemble de la famille, avec les parents uniquement, avec les enfants uniquement.</p>
+      <h4>Déroulement des séances</h4>
+      <p>Les consultations ont lieu généralement en présentiel au cabinet de thérapie. Des entretiens par téléphone ou en Visio peuvent également s’envisager selon le contexte.</p>
+      <p>Lors d’une thérapie de couple ou de famille, après avoir fait connaissance tous ensemble, je pourrais parfois vous proposer des entretiens avec un seul membre du couple alternativement, avec le couple de parents uniquement, avec les enfants…</p>
       <p>En fonction du déroulé des consultations, j'utiliserai des méthodes et des outils que je choisirai en fonction de ce qui se passe pendant les séances et entre les séances. La thérapie n'est pas qu'un espace d'écoute active et des échanges. Les outils peuvent être créatifs, utilisés pendant la séance ou chez vous. Nous pouvons parfois bouger physiquement dans la salle, écrire ou dessiner sur un tableau blanc.</p>
 
       <h4>Qui vient ?</h4>
       <p>Vous prenez contact directement ou suite à la proposition d'un médecin ou une personne de votre entourage qui vous a conseillé de faire une thérapie de couple ou de famille ou une guidance parentale.</p>
       <p>Lors du premier entretien ou de notre premier échange téléphonique, nous aborderons qui vous voulez inviter, qui est important pour vous.</p>
-      <p>Aujourd'hui, il y a plusieurs modèles de familles : vous pouvez venir le couple parental avec ses enfants ou une maman seule / un papa seul avec ses enfants, inviter une grand-mère, un frère, une tante…</p>
+      <p>Aujourd'hui, il y a plusieurs modèles de familles : classique, monoparentale, recomposée… vous pouvez venir en couple avec vos enfants ou seul(e) avec vos enfants, inviter vos parents, un beau-père, une belle-mère…</p>
     </section>
 
     <!-- Mes Accompagnements -->
@@ -519,14 +557,14 @@
       <div class="feature-list">
         <div class="feature-item">
           <span class="feature-title">Une exploration globale</span>
-          <span class="feature-desc">Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement tout en adaptant la thérapie à la singularité des personnes et de ses symptômes.</span>
+          <span class="feature-desc">Nous identifierons ensemble l'origine de votre demande en prenant en compte votre famille dans sa globalité et son environnement tout en adaptant la thérapie à la singularité des personnes et de ses éventuels symptômes.</span>
         </div>
       </div>
 
-      <p style="margin-top: 1.5rem;"><strong>Quelques exemples de demandes de consultation</strong></p>
+      <p style="margin-top: 1.5rem;"><strong>Pourquoi consulter, quelques exemples</strong></p>
       <ul class="situations-list">
-        <li>Vous avez vécu des événements difficiles</li>
-        <li>Un ou plusieurs membres de la famille souffrent particulièrement, présentent des troubles (maladie, addiction, problème de comportement, violence, perte de contrôle, difficultés diverses)</li>
+        <li>Vous avez vécu des événements difficiles et vous avez du mal à les surmonter</li>
+        <li>Un ou plusieurs membres de la famille souffrent particulièrement, présentent des troubles ou souffrent d’une maladie, d’addiction, de problème de comportement, de violence, de perte de contrôle, de difficultés diverses</li>
         <li>C'est plus compliqué dans la famille, vous ne savez plus quoi faire</li>
         <li>Vous n'arrivez plus à vivre dans la tranquillité</li>
         <li>L'ambiance est triste ou tendue</li>
@@ -538,7 +576,7 @@
       <div class="feature-list" style="margin-top: 1.5rem;">
         <div class="feature-item">
           <span class="feature-title">Une thérapie adaptée</span>
-          <span class="feature-desc">Les entretiens et méthodes stratégiques s'adaptent à votre famille et font apparaître votre fonctionnement relationnel. La finalité de la thérapie est de résoudre une situation de souffrance, permettre la disparition des symptômes et de rétablir les liens entre vous, retrouver votre équilibre et le bien-être de l'ensemble de la famille.</span>
+          <span class="feature-desc">Les entretiens et méthodes stratégiques s'adaptent à votre famille et font apparaître votre fonctionnement relationnel et ses effets. La finalité de la thérapie est de résoudre une situation de souffrance, permettre la disparition des symptômes et de rétablir les liens entre vous, retrouver votre équilibre et le bien-être de l'ensemble de la famille.</span>
         </div>
       </div>
 
@@ -614,52 +652,79 @@
 
       <h4>Prendre Rendez-vous</h4>
       <p>
-        Afin de préserver la qualité d'écoute lors de mes consultations et de vous répondre dans les meilleures conditions, la prise de contact initiale se fait via ce formulaire sécurisé. Je vous recontacterai rapidement pour échanger sur votre demande et vous proposer un créneau.
+        Afin de préserver la qualité d'écoute lors des consultations et de vous répondre dans les meilleures conditions, la prise de contact initiale se fait de préférence via ce formulaire sécurisé. Vous pouvez également me joindre directement par téléphone. Je vous recontacterai rapidement pour échanger sur votre demande et vous proposer un créneau.
       </p>
 
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="margin-top: 1.5rem;">
-        <input type="hidden" name="access_key" value="1527e379-cfc5-4c07-8b25-be459eefe9da">
-        <input type="hidden" name="subject" value="Nouvelle demande de prise de contact (Site Internet)">
-        <input type="hidden" name="from_name" value="Site Thérapeute Chartreuse">
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      <div class="contact-layout" style="margin-top: 1.5rem;">
+        <div class="contact-left">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="1527e379-cfc5-4c07-8b25-be459eefe9da">
+            <input type="hidden" name="subject" value="Nouvelle demande de prise de contact (Site Internet)">
+            <input type="hidden" name="from_name" value="Site Thérapeute Chartreuse">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstname">Votre Prénom *</label>
-            <input type="text" id="firstname" name="Prénom" required placeholder="Ex: Marie" />
-          </div>
-          <div class="form-group">
-            <label for="lastname">Votre Nom *</label>
-            <input type="text" id="lastname" name="Nom" required placeholder="Ex: Dupont" />
-          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstname">Votre Prénom *</label>
+                <input type="text" id="firstname" name="Prénom" required placeholder="Ex: Marie" />
+              </div>
+              <div class="form-group">
+                <label for="lastname">Votre Nom *</label>
+                <input type="text" id="lastname" name="Nom" required placeholder="Ex: Dupont" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Votre Email *</label>
+                <input type="email" id="email" name="Email" required placeholder="votre@email.fr" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Votre Numéro de téléphone *</label>
+                <input type="tel" id="phone" name="Téléphone" required placeholder="06 XX XX XX XX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="motif">Motif de la consultation *</label>
+              <select id="motif" name="Motif" required>
+                <option value="" disabled selected>Sélectionnez un motif...</option>
+                <option value="Thérapie familiale">Thérapie familiale</option>
+                <option value="Thérapie de couple">Thérapie de couple</option>
+                <option value="Guidance parentale">Guidance parentale</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Votre message (facultatif)</label>
+              <textarea id="message" name="Message" placeholder="Veuillez préciser votre demande en quelques mots si vous le souhaitez."></textarea>
+            </div>
+            <div id="form-status" class="form-status" aria-live="polite"></div>
+            <button type="submit" class="btn-submit">Envoyer ma demande</button>
+          </form>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Votre Email *</label>
-            <input type="email" id="email" name="Email" required placeholder="votre@email.fr" />
-          </div>
-          <div class="form-group">
-            <label for="phone">Votre Numéro de téléphone *</label>
-            <input type="tel" id="phone" name="Téléphone" required placeholder="06 XX XX XX XX" />
-          </div>
+
+        <div class="contact-right">
+          <h4>Coordonnées</h4>
+          <p style="font-size: 0.95rem; color: var(--text); line-height: 1.6; margin-bottom: 0.75rem;">
+            <strong>Isabelle Résibois</strong><br>
+            Cabinet de Thérapie Chartreuse
+          </p>
+          <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem;">
+            111, allée de la Fagotière<br>
+            38960 Saint-Étienne de Crossey
+          </p>
+          <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">
+            <a href="https://maps.google.com/?q=111+all%C3%A9e+de+la+Fagoti%C3%A8re,+38960+Saint-Etienne-de-Crossey" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 500; text-decoration: underline; display: inline-flex; align-items: center; gap: 0.25rem;">
+              Voir sur Google Maps ↗
+            </a>
+          </p>
+          <p style="font-size: 0.95rem; color: var(--text); margin-bottom: 0; line-height: 1.6;">
+            <strong>Téléphone :</strong><br>
+            <span class="phone-security-wrapper" data-phone-obfuscated="MDYzMTQ5Nzc2OA==">
+              <span class="phone-reveal-btn" style="cursor: pointer; color: var(--accent); font-weight: 600; text-decoration: underline;">Afficher le numéro</span>
+            </span>
+          </p>
         </div>
-        <div class="form-group">
-          <label for="motif">Motif de la consultation *</label>
-          <select id="motif" name="Motif" required>
-            <option value="" disabled selected>Sélectionnez un motif...</option>
-            <option value="Thérapie familiale">Thérapie familiale</option>
-            <option value="Thérapie de couple">Thérapie de couple</option>
-            <option value="Guidance parentale">Guidance parentale</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Votre message (facultatif)</label>
-          <textarea id="message" name="Message" placeholder="Veuillez préciser votre demande en quelques mots si vous le souhaitez."></textarea>
-        </div>
-        <div id="form-status" class="form-status" aria-live="polite"></div>
-        <button type="submit" class="btn-submit">Envoyer ma demande</button>
-      </form>
+      </div>
     </section>
 
   </main>
@@ -730,6 +795,71 @@
           btn.textContent = 'Envoyer ma demande';
         }
       });
+    }
+
+    // Protection anti-bot interactive pour le numéro de téléphone (addition simple au premier clic)
+    function setupPhoneSecurity() {
+      document.querySelectorAll('.phone-reveal-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const wrapper = this.closest('.phone-security-wrapper');
+          const obfuscated = wrapper.getAttribute('data-phone-obfuscated');
+          
+          if (sessionStorage.getItem('phone_unlocked')) {
+            revealPhone(wrapper, obfuscated);
+            return;
+          }
+          
+          const num1 = Math.floor(Math.random() * 5) + 1; // 1 à 5
+          const num2 = Math.floor(Math.random() * 5) + 1; // 1 à 5
+          const expectedResult = num1 + num2;
+          
+          wrapper.innerHTML = `
+            <span style="font-size: 0.85rem; color: var(--muted); font-style: normal; display: inline-flex; align-items: center; gap: 0.25rem;">
+              Sécurité : ${num1} + ${num2} = 
+              <input type="text" class="phone-captcha-val" style="width: 32px; padding: 2px 4px; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 4px; text-align: center; color: var(--text); background: var(--bg);" />
+              <button class="phone-captcha-btn" style="padding: 2px 8px; font-size: 0.85rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">OK</button>
+            </span>
+          `;
+          
+          const input = wrapper.querySelector('.phone-captcha-val');
+          const valBtn = wrapper.querySelector('.phone-captcha-btn');
+          
+          const checkCaptcha = () => {
+            if (parseInt(input.value, 10) === expectedResult) {
+              sessionStorage.setItem('phone_unlocked', '1');
+              // Déclencher la révélation sur tous les wrappers de la page
+              document.querySelectorAll('.phone-security-wrapper').forEach(w => {
+                revealPhone(w, w.getAttribute('data-phone-obfuscated'));
+              });
+            } else {
+              input.style.borderColor = '#ef4444';
+              input.value = '';
+              input.focus();
+            }
+          };
+          
+          valBtn.addEventListener('click', checkCaptcha);
+          input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkCaptcha();
+          });
+          input.focus();
+        });
+      });
+    }
+
+    function revealPhone(wrapper, obfuscated) {
+      const decoded = atob(obfuscated);
+      const formatted = decoded.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5");
+      wrapper.innerHTML = `<a href="tel:${decoded}" style="color: var(--accent); font-weight: 600; text-decoration: none;">${formatted}</a>`;
+    }
+
+    // Initialisation
+    if (sessionStorage.getItem('phone_unlocked')) {
+      document.querySelectorAll('.phone-security-wrapper').forEach(w => {
+        revealPhone(w, w.getAttribute('data-phone-obfuscated'));
+      });
+    } else {
+      setupPhoneSecurity();
     }
   </script>
 </body>
