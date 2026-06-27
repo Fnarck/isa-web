@@ -126,7 +126,11 @@
       <ul>
         <li><strong>Nom :</strong> Isabelle Résibois</li>
         <li><strong>Adresse professionnelle :</strong> 111 allée de la Fagotière, 38960 Saint-Étienne-de-Crossey</li>
-        <li><strong>Téléphone :</strong> 06 31 49 77 68</li>
+        <li><strong>Téléphone :</strong> 
+          <span class="phone-security-wrapper" data-phone-obfuscated="MDYzMTQ5Nzc2OA==" style="display: inline-block;">
+            <span class="phone-reveal-btn" style="cursor: pointer; color: var(--accent); font-weight: 600; text-decoration: underline;">Afficher le numéro</span>
+          </span>
+        </li>
         <li><strong>Email :</strong> contact@therapeutechartreuse.fr</li>
         <li><strong>Statut juridique / N° SIRET :</strong> Profession libérale (SIRET : En cours d'immatriculation)</li>
       </ul>
@@ -164,5 +168,68 @@
     </footer>
   </div>
 
+  <script>
+    // Protection anti-bot interactive pour le numéro de téléphone (addition simple au premier clic)
+    function setupPhoneSecurity() {
+      document.querySelectorAll('.phone-reveal-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const wrapper = this.closest('.phone-security-wrapper');
+          const obfuscated = wrapper.getAttribute('data-phone-obfuscated');
+          
+          if (sessionStorage.getItem('phone_unlocked')) {
+            revealPhone(wrapper, obfuscated);
+            return;
+          }
+          
+          const num1 = Math.floor(Math.random() * 5) + 1; // 1 à 5
+          const num2 = Math.floor(Math.random() * 5) + 1; // 1 à 5
+          const expectedResult = num1 + num2;
+          
+          wrapper.innerHTML = `
+            <span style="font-size: 0.85rem; color: var(--muted); font-style: normal; display: inline-flex; align-items: center; gap: 0.25rem;">
+              Sécurité : ${num1} + ${num2} = 
+              <input type="text" class="phone-captcha-val" style="width: 32px; padding: 2px 4px; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 4px; text-align: center; color: var(--text); background: var(--bg);" />
+              <button class="phone-captcha-btn" style="padding: 2px 8px; font-size: 0.85rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">OK</button>
+            </span>
+          `;
+          
+          const input = wrapper.querySelector('.phone-captcha-val');
+          const valBtn = wrapper.querySelector('.phone-captcha-btn');
+          
+          const checkCaptcha = () => {
+            if (parseInt(input.value, 10) === expectedResult) {
+              sessionStorage.setItem('phone_unlocked', '1');
+              revealPhone(wrapper, obfuscated);
+            } else {
+              input.style.borderColor = '#ef4444';
+              input.value = '';
+              input.focus();
+            }
+          };
+          
+          valBtn.addEventListener('click', checkCaptcha);
+          input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkCaptcha();
+          });
+          input.focus();
+        });
+      });
+    }
+
+    function revealPhone(wrapper, obfuscated) {
+      const decoded = atob(obfuscated);
+      const formatted = decoded.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5");
+      wrapper.innerHTML = `<a href="tel:${decoded}" style="color: var(--accent); font-weight: 600; text-decoration: none;">${formatted}</a>`;
+    }
+
+    // Initialisation
+    if (sessionStorage.getItem('phone_unlocked')) {
+      document.querySelectorAll('.phone-security-wrapper').forEach(w => {
+        revealPhone(w, w.getAttribute('data-phone-obfuscated'));
+      });
+    } else {
+      setupPhoneSecurity();
+    }
+  </script>
 </body>
 </html>
